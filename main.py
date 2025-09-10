@@ -15,8 +15,11 @@ OPML_URL = "https://github.com/zeotrix/Security_Materials/raw/main/feedly-2022-0
 LAST_POSTS_FILE = "last_posts.json"
 
 # Retrieve Telegram credentials from environment variables for security.
-TELEGRAM_BOT_TOKEN = "TELEGRAM_BOT_TOKEN"
-TELEGRAM_CHANNEL_ID = "TELEGRAM_CHANNEL_ID"
+TELEGRAM_BOT_TOKEN = "TELEGRAM_BOT_TOKEN"  #os.getenv("TELEGRAM_BOT_TOKEN")
+TELEGRAM_CHANNEL_ID = "TELEGRAM_CHANNEL_ID" #os.getenv("TELEGRAM_CHANNEL_ID")
+# if use getenv, in linux set :
+# export TELEGRAM_BOT_TOKEN="YOUR_TOKEN_HERE" and 
+# export TELEGRAM_CHANNEL_ID="YOUR_CHANNEL_ID_HERE"
 TELEGRAM_API_URL = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMessage"
 
 def load_rss_feeds_from_opml(opml_url):
@@ -153,6 +156,7 @@ def main():
 
     save_last_posts(LAST_POSTS_FILE, last_posts)
     print("\nProcess complete.")
+    send_telegram_message("No more posts for today!")
 
 if __name__ == "__main__":
     main()
