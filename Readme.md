@@ -40,6 +40,7 @@ How to use the script:
     set TELEGRAM__Blogs_CHANNEL_ID="YOUR_CHANNEL_ID_HERE"
 
 5- Run the script:
+
     With environment variables set, you can now run the script:
     python main.py
 
