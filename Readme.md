@@ -32,12 +32,12 @@ How to use the script:
 
     On Linux/macOS:
     export TELEGRAM_BOT_TOKEN="YOUR_TOKEN_HERE"
-    export TELEGRAM_CHANNEL_ID="YOUR_CHANNEL_ID_HERE"
+    export TELEGRAM__Blogs_CHANNEL_ID="YOUR_CHANNEL_ID_HERE"
     (Note: You'll need to do this in the terminal session you plan to run the script in, or add it to your .bashrc or .zshrc file for permanent use.)
 
     On Windows (Command Prompt):
     set TELEGRAM_BOT_TOKEN="YOUR_TOKEN_HERE"
-    set TELEGRAM_CHANNEL_ID="YOUR_CHANNEL_ID_HERE"
+    set TELEGRAM__Blogs_CHANNEL_ID="YOUR_CHANNEL_ID_HERE"
 
 5- Run the script:
     With environment variables set, you can now run the script:

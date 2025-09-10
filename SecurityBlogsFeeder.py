@@ -16,7 +16,7 @@ LAST_POSTS_FILE = "last_posts.json"
 
 # Retrieve Telegram credentials from environment variables for security.
 TELEGRAM_BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
-TELEGRAM_CHANNEL_ID = os.getenv("TELEGRAM_CHANNEL_ID")
+TELEGRAM_CHANNEL_ID = os.getenv("TELEGRAM__Blogs_CHANNEL_ID")
 TELEGRAM_API_URL = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMessage"
 
 def load_rss_feeds_from_opml(opml_url):
