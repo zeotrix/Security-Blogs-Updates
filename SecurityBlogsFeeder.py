@@ -12,7 +12,7 @@ from datetime import datetime
 # for new posts and sends them to a Telegram channel.
 
 # --- Configuration ---
-OPML_URL = "https://github.com/zeotrix/Security_Materials/raw/main/feedly-2022-06-10.opml"
+OPML_URL = "https://raw.githubusercontent.com/zeotrix/Security_Materials/refs/heads/main/feedly-2022-06-10.opml"
 LAST_POSTS_FILE = "last_posts.json"
 
 # Retrieve Telegram credentials from environment variables for security.

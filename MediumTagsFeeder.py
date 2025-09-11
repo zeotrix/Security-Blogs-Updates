@@ -12,7 +12,7 @@ from datetime import datetime
 # for new posts and sends them to a Telegram channel.
 
 # --- Configuration ---
-OPML_URL = "https://github.com/zeotrix/Security_Materials/blob/main/MediumTags.opml"
+OPML_URL = "https://raw.githubusercontent.com/zeotrix/Security_Materials/main/MediumTags.opml"
 LAST_POSTS_FILE = "last_medium_posts.json"
 
 # Retrieve Telegram credentials from environment variables for security.
