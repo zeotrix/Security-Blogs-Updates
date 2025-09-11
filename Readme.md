@@ -43,6 +43,7 @@ How to use the script:
 5- Run the script:
 
     With environment variables set, you can now run the script:
-    python main.py
+    python SecurityBlogsFeeder.py
+    python MediumTagsFeeder.py
 
 The script will check all your feeds and send any new posts to your Telegram channel. The last_posts.json file will be updated so you don't receive duplicate notifications on subsequent runs.
