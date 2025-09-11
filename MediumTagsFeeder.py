@@ -125,6 +125,8 @@ def send_telegram_message(message):
         response = requests.post(TELEGRAM_API_URL, data=payload)
         response.raise_for_status()
         print("Message successfully sent to Telegram.")
+        # Return the message ID from the response
+        return response.json()['result']['message_id']
     except requests.exceptions.RequestException as e:
         print(f"Error sending message to Telegram: {e}")
 
@@ -146,8 +148,6 @@ def pin_telegram_message(message_id):
         response = requests.post(pin_api_url, data=payload)
         response.raise_for_status()
         print("Message successfully pinned.")
-        # Return the message ID from the response
-        return response.json()['result']['message_id']
     except requests.exceptions.RequestException as e:
         print(f"Error pinning message: {e}")
 
