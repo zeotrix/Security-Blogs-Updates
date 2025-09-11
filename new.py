@@ -6,7 +6,6 @@ import os
 import requests
 import time
 import xml.etree.ElementTree as ET
-from datetime import datetime
 
 # This script checks a list of RSS feeds from an OPML file hosted online
 # for new posts and sends them to a Telegram channel.
@@ -17,7 +16,7 @@ LAST_POSTS_FILE = "last_posts.json"
 
 # Retrieve Telegram credentials from environment variables for security.
 TELEGRAM_BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
-TELEGRAM_CHANNEL_ID = os.getenv("TELEGRAM_Blogs_CHANNEL_ID")
+TELEGRAM_CHANNEL_ID = os.getenv("TELEGRAM__Blogs_CHANNEL_ID")
 TELEGRAM_API_URL = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMessage"
 
 def load_rss_feeds_from_opml(opml_url):
@@ -104,7 +103,7 @@ def check_for_new_posts(feed_url, last_posts):
     except Exception as e:
         print(f"Error checking feed {feed_url}: {e}")
         return []
-    
+
 def send_telegram_message(message):
     """
     Sends a message to a Telegram channel using the Bot API.
@@ -133,8 +132,6 @@ def main():
     Main function to run the RSS monitor once.
     """
     print("Starting RSS Feed Monitor...")
-    today = datetime.now().strftime("%B %d, %Y")
-    send_telegram_message(f"Hello, everyone! 👋 Hope you're having a fantastic {today}! ✨")
     
     rss_urls = load_rss_feeds_from_opml(OPML_URL)
     if not rss_urls:
