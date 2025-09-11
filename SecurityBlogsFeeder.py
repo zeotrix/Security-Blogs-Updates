@@ -125,8 +125,31 @@ def send_telegram_message(message):
         response = requests.post(TELEGRAM_API_URL, data=payload)
         response.raise_for_status()
         print("Message successfully sent to Telegram.")
+        # Return the message ID from the response
+        return response.json()['result']['message_id']
     except requests.exceptions.RequestException as e:
         print(f"Error sending message to Telegram: {e}")
+        
+def pin_telegram_message(message_id):
+    """
+    Pins a message in a Telegram channel.
+    """
+    if not TELEGRAM_BOT_TOKEN or not TELEGRAM_CHANNEL_ID:
+        print("Error: Telegram bot token or channel ID not set.")
+        return
+
+    pin_api_url = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/pinChatMessage"
+    payload = {
+        'chat_id': TELEGRAM_CHANNEL_ID,
+        'message_id': message_id
+    }
+
+    try:
+        response = requests.post(pin_api_url, data=payload)
+        response.raise_for_status()
+        print("Message successfully pinned.")
+    except requests.exceptions.RequestException as e:
+        print(f"Error pinning message: {e}")
 
 def main():
     """
@@ -134,8 +157,12 @@ def main():
     """
     print("Starting RSS Feed Monitor...")
     today = datetime.now().strftime("%B %d, %Y")
-    send_telegram_message(f"Hello, everyone! 👋 Hope you're having a fantastic {today}! ✨")
-    
+    hello_message_id = send_telegram_message(f"Hello, everyone! 👋 Hope you're having a fantastic {today}! ✨")
+
+    if hello_message_id:
+        # Pin the sent message
+        pin_telegram_message(hello_message_id)
+
     rss_urls = load_rss_feeds_from_opml(OPML_URL)
     if not rss_urls:
         return
