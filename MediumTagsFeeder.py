@@ -155,7 +155,7 @@ def main():
                 message += f"Link: {post['link']}\n\n"
             
             send_telegram_message(message)
-            time.sleep(2) # Small delay to avoid hitting Telegram's rate limits
+            time.sleep(10) # Small delay to avoid hitting Telegram's rate limits
 
     if not new_posts_found:
         print("No new posts found for any feed.")
