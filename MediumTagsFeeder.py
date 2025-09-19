@@ -87,6 +87,7 @@ def check_for_new_posts(feed_url, last_posts):
         for entry in reversed(feed.entries):
             title = entry.title if hasattr(entry, 'title') else "Untitled"
             link = entry.link if hasattr(entry, 'link') else "No Link"
+            link = f"https://freedium.cfd/{link}"
             
             # Check if the title has been seen before
             if title not in last_seen_titles:
